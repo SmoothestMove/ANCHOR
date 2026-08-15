@@ -1,143 +1,193 @@
-:root {
-  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-  --font-display: 'Plus Jakarta Sans', var(--font-sans);
-  --font-mono: 'JetBrains Mono', monospace;
+@import "tailwindcss";
 
-  /* Clinical Calm Color Palette */
-  --bg-primary: #0b0f17;
-  --bg-secondary: #111827;
-  --bg-card: rgba(17, 24, 39, 0.75);
-  --bg-card-hover: rgba(30, 41, 59, 0.8);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-focus: rgba(20, 184, 166, 0.5);
+/* ═══════════════════════════════════════════════════════════════
+   ANCHOR RELATIONAL TRUST ENGINE — CLINICAL LUXURY DESIGN SYSTEM
+   Palette: Muted Sage Greens, Soft Navy, Warm Amber, Slate Obsidian
+   ═══════════════════════════════════════════════════════════════ */
 
-  --sage-500: #14b8a6;
-  --sage-600: #0d9488;
-  --sage-900: #134e4a;
-  
-  --navy-500: #6366f1;
-  --navy-800: #1e1b4b;
-  
-  --amber-warm: #f59e0b;
-  --rose-subtle: #f43f5e;
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Clinical Color Spectrum */
+  --color-sage-50: #f0fdfa;
+  --color-sage-100: #ccfbf1;
+  --color-sage-200: #99f6e4;
+  --color-sage-300: #5eead4;
+  --color-sage-400: #2dd4bf;
+  --color-sage-500: #14b8a6;
+  --color-sage-600: #0d9488;
+  --color-sage-700: #0f766e;
+  --color-sage-800: #115e59;
+  --color-sage-900: #134e4a;
+  --color-sage-950: #042f2e;
+
+  /* Slate Obsidian Backgrounds */
+  --color-slate-850: #111827;
+  --color-slate-925: #070d18;
+  --color-slate-975: #020611;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* ── Keyframe Animations ────────────────────────────────────── */
 
-body {
-  font-family: var(--font-sans);
-  background-color: var(--bg-primary);
-  color: #f1f5f9;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-h1, h2, h3, h4, .font-display {
-  font-family: var(--font-display);
-}
-
-.font-mono {
-  font-family: var(--font-mono);
-}
-
-/* Glassmorphism Classes */
-.glass-panel {
-  background: rgba(15, 23, 42, 0.7);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-card {
-  background: rgba(30, 41, 59, 0.5);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-}
-
-.glass-card:hover {
-  background: rgba(30, 41, 59, 0.7);
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-/* Custom Scrollbars */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background: rgba(11, 15, 23, 0.6);
-}
-
-::-webkit-scrollbar-thumb {
-  background: rgba(100, 116, 139, 0.3);
-  border-radius: 4px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: rgba(100, 116, 139, 0.5);
-}
-
-/* Breathing Somatic Animation */
 @keyframes breathCycle {
   0% {
-    transform: scale(0.7);
-    opacity: 0.5;
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.2);
+    transform: scale(0.72);
+    opacity: 0.45;
+    box-shadow: 0 0 25px rgba(20, 184, 166, 0.2);
   }
-  21% { /* 4s inhale (4s out of 19s = ~21%) */
-    transform: scale(1.25);
+  21% {
+    /* Inhale 4s */
+    transform: scale(1.28);
     opacity: 0.95;
-    box-shadow: 0 0 45px rgba(20, 184, 166, 0.6);
+    box-shadow: 0 0 65px rgba(20, 184, 166, 0.55), 0 0 130px rgba(20, 184, 166, 0.2);
   }
-  58% { /* 7s hold (11s out of 19s = ~58%) */
-    transform: scale(1.25);
+  58% {
+    /* Hold 7s */
+    transform: scale(1.28);
     opacity: 0.95;
-    box-shadow: 0 0 50px rgba(56, 189, 248, 0.7);
+    box-shadow: 0 0 70px rgba(56, 189, 248, 0.6), 0 0 140px rgba(56, 189, 248, 0.25);
   }
-  100% { /* 8s exhale (19s total) */
-    transform: scale(0.7);
-    opacity: 0.5;
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.2);
-  }
-}
-
-.animate-somatic-breath {
-  animation: breathCycle 19s infinite ease-in-out;
-}
-
-/* Biometric Pulse Animation */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(0.97);
+  100% {
+    /* Exhale 8s */
+    transform: scale(0.72);
+    opacity: 0.45;
+    box-shadow: 0 0 25px rgba(20, 184, 166, 0.2);
   }
 }
 
-.animate-pulse-glow {
-  animation: pulseGlow 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+@keyframes pulseSubtle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(0.98); }
 }
 
-/* Subtle Shimmer for High BCI */
 @keyframes bciShimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
 }
 
-.bci-gradient-text {
-  background: linear-gradient(90deg, #2dd4bf, #38bdf8, #818cf8, #2dd4bf);
-  background-size: 300% 100%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: bciShimmer 8s linear infinite;
+@keyframes fadeInScale {
+  from { opacity: 0; transform: scale(0.98) translateY(6px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes heartPulse {
+  0% { transform: scale(1); }
+  14% { transform: scale(1.18); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.12); }
+  70% { transform: scale(1); }
+}
+
+/* ── Base Styles ────────────────────────────────────────────── */
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #030712;
+    background-image: 
+      radial-gradient(at 0% 0%, rgba(13, 148, 136, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(99, 102, 241, 0.07) 0px, transparent 50%),
+      radial-gradient(at 50% 100%, rgba(15, 23, 42, 0.8) 0px, transparent 70%);
+    background-attachment: fixed;
+    color: #f1f5f9;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(20, 184, 166, 0.25);
+    color: #5eead4;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+
+  /* Form Elements */
+  input, textarea, select {
+    font-family: var(--font-sans);
+  }
+
+  input[type="range"] {
+    accent-color: #14b8a6;
+  }
+}
+
+/* ── Glassmorphism & UI Components ─────────────────────────── */
+
+@layer components {
+  .glass-panel {
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px) saturate(1.2);
+    -webkit-backdrop-filter: blur(16px) saturate(1.2);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+      0 4px 24px -1px rgba(0, 0, 0, 0.3),
+      0 2px 8px -1px rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  }
+
+  .glass-card {
+    background: rgba(30, 41, 59, 0.45);
+    backdrop-filter: blur(12px) saturate(1.1);
+    -webkit-backdrop-filter: blur(12px) saturate(1.1);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-card:hover {
+    background: rgba(30, 41, 59, 0.6);
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 28px -4px rgba(0, 0, 0, 0.35);
+  }
+
+  .bci-gradient-text {
+    background: linear-gradient(90deg, #2dd4bf, #38bdf8, #818cf8, #2dd4bf);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: bciShimmer 6s linear infinite;
+  }
+
+  .animate-somatic-breath {
+    animation: breathCycle 19s infinite ease-in-out;
+  }
+
+  .animate-heart-pulse {
+    animation: heartPulse 1.2s ease-in-out infinite;
+  }
+
+  .animate-fade-scale {
+    animation: fadeInScale 0.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
