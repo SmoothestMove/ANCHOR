@@ -23,7 +23,7 @@ const MainAppContent: React.FC = () => {
   // Modals
   const [showLobbyModal, setShowLobbyModal] = useState(false);
   const [showEmergencyModal, setShowEmergencyModal] = useState(false);
-  const [showTriageModal, setShowTriageModal] = useState(false);
+  const [showTriageModal, setShowTriageModal] = useState(!state.triage.completed);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 flex flex-col selection:bg-teal-500/20 selection:text-teal-300">

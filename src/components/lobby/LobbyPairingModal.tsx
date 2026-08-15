@@ -89,18 +89,22 @@ export const LobbyPairingModal: React.FC<LobbyPairingModalProps> = ({ isOpen, on
           <div className="grid grid-cols-2 gap-2 pt-2 border-t border-slate-850">
             <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div className="flex items-center space-x-2 text-xs text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className={`w-2 h-2 rounded-full ${state.lobby.partnerA_Online ? 'bg-emerald-400 animate-pulse' : 'bg-slate-600'}`} />
                 <span className="font-medium">Partner A (Offender)</span>
               </div>
-              <span className="text-[10px] font-mono text-emerald-400 font-semibold">Connected</span>
+              <span className={`text-[10px] font-mono font-semibold ${state.lobby.partnerA_Online ? 'text-emerald-400' : 'text-slate-500'}`}>
+                {state.lobby.partnerA_Online ? 'Connected' : 'Offline'}
+              </span>
             </div>
 
             <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-between">
               <div className="flex items-center space-x-2 text-xs text-slate-300">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span className={`w-2 h-2 rounded-full ${state.lobby.partnerB_Online ? 'bg-emerald-400 animate-pulse' : 'bg-slate-600'}`} />
                 <span className="font-medium">Partner B (Injured)</span>
               </div>
-              <span className="text-[10px] font-mono text-emerald-400 font-semibold">Connected</span>
+              <span className={`text-[10px] font-mono font-semibold ${state.lobby.partnerB_Online ? 'text-emerald-400' : 'text-slate-500'}`}>
+                {state.lobby.partnerB_Online ? 'Connected' : 'Offline'}
+              </span>
             </div>
           </div>
         </div>
