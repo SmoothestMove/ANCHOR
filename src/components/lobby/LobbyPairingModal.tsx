@@ -111,7 +111,7 @@ export const LobbyPairingModal: React.FC<LobbyPairingModalProps> = ({ isOpen, on
                 <span className={`w-2 h-2 rounded-full ${state.lobby.partnerA_Online ? 'bg-emerald-400 animate-pulse motion-reduce:animate-none' : 'bg-slate-600'}`} aria-hidden="true" />
                 <span className="font-medium">Partner A (Offender)</span>
               </div>
-              <span className={`text-[10px] font-mono font-semibold ${state.lobby.partnerA_Online ? 'text-emerald-400' : 'text-slate-500'}`}>
+              <span className={`text-[11px] font-mono font-semibold ${state.lobby.partnerA_Online ? 'text-emerald-400' : 'text-slate-500'}`}>
                 {state.lobby.partnerA_Online ? 'Connected' : 'Offline'}
               </span>
             </div>
@@ -121,7 +121,7 @@ export const LobbyPairingModal: React.FC<LobbyPairingModalProps> = ({ isOpen, on
                 <span className={`w-2 h-2 rounded-full ${state.lobby.partnerB_Online ? 'bg-emerald-400 animate-pulse motion-reduce:animate-none' : 'bg-slate-600'}`} aria-hidden="true" />
                 <span className="font-medium">Partner B (Injured)</span>
               </div>
-              <span className={`text-[10px] font-mono font-semibold ${state.lobby.partnerB_Online ? 'text-emerald-400' : 'text-slate-500'}`}>
+              <span className={`text-[11px] font-mono font-semibold ${state.lobby.partnerB_Online ? 'text-emerald-400' : 'text-slate-500'}`}>
                 {state.lobby.partnerB_Online ? 'Connected' : 'Offline'}
               </span>
             </div>
@@ -171,7 +171,7 @@ export const LobbyPairingModal: React.FC<LobbyPairingModalProps> = ({ isOpen, on
                 }`}
               >
                 <div className="font-bold text-amber-300">Partner A</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Offender / Truth-Breaker</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Offender / Truth-Breaker</div>
               </button>
 
               <button
@@ -186,7 +186,7 @@ export const LobbyPairingModal: React.FC<LobbyPairingModalProps> = ({ isOpen, on
                 }`}
               >
                 <div className="font-bold text-teal-300">Partner B</div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Injured / Betrayed</div>
+                <div className="text-[11px] text-slate-400 mt-0.5">Injured / Betrayed</div>
               </button>
             </div>
           </div>

@@ -86,7 +86,7 @@ export const AttunementCoachView: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-[11px] font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-indigo-950 border border-indigo-500/40 text-indigo-300">
+                <span className="text-xs font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-indigo-950 border border-indigo-500/40 text-indigo-300">
                   Module 4 • EFT / AIRM Framework
                 </span>
                 <span className="text-xs text-slate-400 font-mono">Johnson Attachment Injury Resolution</span>
@@ -113,7 +113,7 @@ export const AttunementCoachView: React.FC = () => {
               {inputText.length > 5 ? `${currentLiveScore}%` : '--'}
             </div>
             <div>
-              <div className="text-[11px] uppercase font-mono text-slate-400 font-medium">Attunement Score</div>
+              <div className="text-xs uppercase font-mono text-slate-400 font-medium">Attunement Score</div>
               <div className="text-xs font-bold text-slate-200 font-display mt-0.5">
                 {inputText.length > 5
                   ? currentLiveScore >= 80 ? 'Deep Empathy & Validation' : 'Moderate Attunement'
@@ -151,7 +151,7 @@ export const AttunementCoachView: React.FC = () => {
                     key={msg.id}
                     className={`flex flex-col ${isPartnerA ? 'items-end' : 'items-start'}`}
                   >
-                    <div className="flex items-center space-x-2 text-[11px] text-slate-400 font-mono mb-1.5">
+                    <div className="flex items-center space-x-2 text-xs text-slate-400 font-mono mb-1.5">
                       {isPartnerA ? (
                         <>
                           <span className="text-amber-400 font-bold">Partner A (Offender)</span>
@@ -283,7 +283,7 @@ export const AttunementCoachView: React.FC = () => {
                 className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 <div className="font-bold text-teal-300 mb-0.5">Validation &amp; Non-Defensive Stance:</div>
-                <div className="text-[11px] text-slate-400 line-clamp-2">
+                <div className="text-xs text-slate-400 line-clamp-2">
                   &ldquo;I hear how much pain and uncertainty my actions caused you&hellip;&rdquo;
                 </div>
               </button>
@@ -298,7 +298,7 @@ export const AttunementCoachView: React.FC = () => {
                 className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 <div className="font-bold text-indigo-300 mb-0.5">Patience &amp; De-Pressuring:</div>
-                <div className="text-[11px] text-slate-400 line-clamp-2">
+                <div className="text-xs text-slate-400 line-clamp-2">
                   &ldquo;I recognize that rebuilding safety takes time. I will not rush you&hellip;&rdquo;
                 </div>
               </button>
@@ -313,7 +313,7 @@ export const AttunementCoachView: React.FC = () => {
                 className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 <div className="font-bold text-amber-300 mb-0.5">Unreserved Responsibility:</div>
-                <div className="text-[11px] text-slate-400 line-clamp-2">
+                <div className="text-xs text-slate-400 line-clamp-2">
                   &ldquo;I take 100% responsibility for breaking your trust&hellip;&rdquo;
                 </div>
               </button>

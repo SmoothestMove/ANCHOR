@@ -73,7 +73,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="font-display font-extrabold text-xl tracking-tight text-white">
                 ANCHOR
               </span>
-              <span className="text-[10px] font-mono font-semibold uppercase px-2 py-0.5 rounded-md bg-teal-950/80 border border-teal-500/40 text-teal-300 tracking-wider">
+              <span className="text-[11px] font-mono font-semibold uppercase px-2 py-0.5 rounded-md bg-teal-950/80 border border-teal-500/40 text-teal-300 tracking-wider">
                 Relational Trust Engine
               </span>
             </div>
@@ -109,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({
 
           {/* Sync Status Badge */}
           <div
-            className="flex items-center space-x-1.5 px-2.5 py-1 text-[11px] font-mono rounded-lg bg-slate-950/60 border border-slate-800"
+            className="flex items-center space-x-1.5 px-2.5 py-1 text-xs font-mono rounded-lg bg-slate-950/60 border border-slate-800"
             role="status"
             aria-live="polite"
           >

@@ -42,7 +42,7 @@ export const ClinicalPhaseBanner: React.FC = () => {
                       <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-teal-500" />
                     </span>
                   ) : isUnlocked ? (
-                    <span className="w-3.5 h-3.5 flex items-center justify-center rounded-full border border-slate-600 text-[10px]">
+                    <span className="w-3.5 h-3.5 flex items-center justify-center rounded-full border border-slate-600 text-[11px]">
                       {p.id}
                     </span>
                   ) : (
@@ -64,7 +64,7 @@ export const ClinicalPhaseBanner: React.FC = () => {
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-5 relative z-10">
             <div className="space-y-2 max-w-3xl">
               <div className="flex items-center space-x-2.5">
-                <span className="px-2.5 py-0.5 rounded-md text-[11px] font-mono uppercase font-bold bg-teal-950 border border-teal-500/40 text-teal-300">
+                <span className="px-2.5 py-0.5 rounded-md text-xs font-mono uppercase font-bold bg-teal-950 border border-teal-500/40 text-teal-300">
                   Active Clinical Phase: {state.currentPhase} of 8
                 </span>
                 <span className="text-xs text-slate-400 font-mono font-medium">
@@ -88,7 +88,7 @@ export const ClinicalPhaseBanner: React.FC = () => {
                 </div>
                 <div className="space-y-0.5">
                   <span className="font-bold text-amber-300 block font-display">Clinical Gate Requirement:</span>
-                  <span className="text-slate-300 leading-relaxed text-[11px] block">
+                  <span className="text-slate-300 leading-relaxed text-xs block">
                     {currentPhaseInfo.clinicalGate}
                   </span>
                 </div>

@@ -70,7 +70,7 @@ export const BiometricFloodingView: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-[11px] font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-rose-950 border border-rose-500/40 text-rose-300">
+                <span className="text-xs font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-rose-950 border border-rose-500/40 text-rose-300">
                   Module 2 • Gottman Method
                 </span>
                 <span className="text-xs text-slate-400 font-mono">Physiological Flooding Management</span>
@@ -126,7 +126,7 @@ export const BiometricFloodingView: React.FC = () => {
               <div className="text-3xl sm:text-4xl font-mono font-extrabold text-rose-400 tracking-wider my-0.5">
                 {String(minutes).padStart(2, '0')}:{String(seconds).padStart(2, '0')}
               </div>
-              <div className="text-[10px] text-slate-500 font-mono">Mandatory Gottman 20m</div>
+              <div className="text-[11px] text-slate-500 font-mono">Mandatory Gottman 20m</div>
             </div>
           </div>
         </div>
@@ -142,26 +142,26 @@ export const BiometricFloodingView: React.FC = () => {
                 <Heart className={`w-4 h-4 ${state.biometrics.currentHeartRate > 100 ? 'text-rose-500 animate-ping' : 'text-teal-400'}`} />
                 <span>Wearable Biometric Telemetry</span>
               </h3>
-              <span className="text-[10px] font-mono uppercase text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 font-semibold">
+              <span className="text-[11px] font-mono uppercase text-slate-400 bg-slate-900 px-2 py-0.5 rounded border border-slate-800 font-semibold">
                 Apple Health / Wearable API
               </span>
             </div>
 
             <div className="grid grid-cols-2 gap-3">
               <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 text-center space-y-1 shadow-inner">
-                <span className="text-[11px] text-slate-400 uppercase font-mono font-medium">Heart Rate</span>
+                <span className="text-xs text-slate-400 uppercase font-mono font-medium">Heart Rate</span>
                 <div className={`text-3xl font-extrabold font-mono ${state.biometrics.currentHeartRate > 100 ? 'text-rose-400' : 'text-teal-300'}`}>
                   {state.biometrics.currentHeartRate} <span className="text-xs font-normal text-slate-500">BPM</span>
                 </div>
-                <div className="text-[10px] text-slate-500 font-mono">Threshold: 100 bpm</div>
+                <div className="text-[11px] text-slate-500 font-mono">Threshold: 100 bpm</div>
               </div>
 
               <div className="p-4 rounded-2xl bg-slate-950/90 border border-slate-800 text-center space-y-1 shadow-inner">
-                <span className="text-[11px] text-slate-400 uppercase font-mono font-medium">HRV (RMSSD)</span>
+                <span className="text-xs text-slate-400 uppercase font-mono font-medium">HRV (RMSSD)</span>
                 <div className="text-3xl font-extrabold font-mono text-indigo-300">
                   {state.biometrics.currentHRV} <span className="text-xs font-normal text-slate-500">ms</span>
                 </div>
-                <div className="text-[10px] text-slate-500 font-mono">Vagal Tone Index</div>
+                <div className="text-[11px] text-slate-500 font-mono">Vagal Tone Index</div>
               </div>
             </div>
 
@@ -179,7 +179,7 @@ export const BiometricFloodingView: React.FC = () => {
                 onChange={handleHRSlider}
                 className="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-teal-400"
               />
-              <div className="flex justify-between text-[10px] text-slate-500 font-mono">
+              <div className="flex justify-between text-[11px] text-slate-500 font-mono">
                 <span>55 (Resting)</span>
                 <span className="text-amber-400">100 (Threshold)</span>
                 <span className="text-rose-400">140 (Flooded)</span>
@@ -269,7 +269,7 @@ export const BiometricFloodingView: React.FC = () => {
                 <div className="absolute inset-0 rounded-full bg-teal-500/10 border border-teal-500/30 animate-somatic-breath pointer-events-none" />
                 {/* Inner Glowing Core */}
                 <div className="w-36 h-36 sm:w-44 sm:h-44 rounded-full bg-teal-950/80 border border-teal-400/50 flex flex-col items-center justify-center p-4 text-center shadow-2xl shadow-teal-950">
-                  <span className="text-[11px] uppercase font-mono tracking-widest text-teal-300 font-bold">
+                  <span className="text-xs uppercase font-mono tracking-widest text-teal-300 font-bold">
                     4-7-8 Rhythm
                   </span>
                   <span className="text-sm font-bold text-white mt-1 font-display">Inhale 4s</span>
@@ -293,14 +293,14 @@ export const BiometricFloodingView: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
                 <div className="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
                   <div className="text-rose-300 font-bold font-display">1. Reject Catastrophic Framing:</div>
-                  <p className="text-slate-400 text-[11px] leading-relaxed">
+                  <p className="text-slate-400 text-xs leading-relaxed">
                     Avoid thoughts like "This will never work." Replace with: "We are physiologically flooded right now, and pausing is evidence-based care."
                   </p>
                 </div>
 
                 <div className="p-3.5 bg-slate-900/80 rounded-xl border border-slate-800 space-y-1">
                   <div className="text-teal-300 font-bold font-display">2. Pure Self-Soothing Focus:</div>
-                  <p className="text-slate-400 text-[11px] leading-relaxed">
+                  <p className="text-slate-400 text-xs leading-relaxed">
                     Do not rehearse counter-arguments during this break. Focus on somatic sensations and deep diaphragmatic breathing.
                   </p>
                 </div>

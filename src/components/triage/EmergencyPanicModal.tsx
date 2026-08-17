@@ -68,7 +68,7 @@ export const EmergencyPanicModal: React.FC<EmergencyPanicModalProps> = ({ isOpen
                 <ShieldAlert className="w-4 h-4" aria-hidden="true" />
                 <span>Immediate Safety Consequences:</span>
               </div>
-              <ul className="list-disc list-inside space-y-1 text-slate-300 text-[11px] leading-relaxed">
+              <ul className="list-disc list-inside space-y-1 text-slate-300 text-xs leading-relaxed">
                 <li>Clears real-time transparency logs and check-in entries.</li>
                 <li>Disconnects active paired sync session immediately.</li>
                 <li>Displays emergency crisis support contact lines.</li>

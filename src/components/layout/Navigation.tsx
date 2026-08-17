@@ -109,7 +109,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab,
                   {isLocked && <Lock className="w-3 h-3 text-slate-600" aria-hidden="true" />}
                   {isLocked && <span className="sr-only">(locked)</span>}
                 </div>
-                <span className="text-[10px] text-slate-500 block font-mono font-normal">{item.sublabel}</span>
+                <span className="text-[11px] text-slate-500 block font-mono font-normal">{item.sublabel}</span>
               </div>
             </button>
           );
@@ -125,7 +125,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab,
         <ShieldAlert className="w-4 h-4 text-amber-400" aria-hidden="true" />
         <div className="text-left font-display">
           <span>Safety Triage</span>
-          <span className="text-[10px] text-slate-500 block font-mono font-normal">IPV Screen</span>
+          <span className="text-[11px] text-slate-500 block font-mono font-normal">IPV Screen</span>
         </div>
       </button>
     </nav>

@@ -41,13 +41,13 @@ export const DualClientView: React.FC<DualClientViewProps> = ({ activeTab }) => 
         <div className="flex items-center space-x-2">
           <button
             onClick={() => setActiveRole('partnerA')}
-            className="px-2 py-1 rounded bg-amber-950/80 border border-amber-500/40 text-amber-300 hover:bg-amber-900 text-[11px]"
+            className="px-2 py-1 rounded bg-amber-950/80 border border-amber-500/40 text-amber-300 hover:bg-amber-900 text-xs"
           >
             Switch Active to Partner A
           </button>
           <button
             onClick={() => setActiveRole('partnerB')}
-            className="px-2 py-1 rounded bg-teal-950/80 border border-teal-500/40 text-teal-300 hover:bg-teal-900 text-[11px]"
+            className="px-2 py-1 rounded bg-teal-950/80 border border-teal-500/40 text-teal-300 hover:bg-teal-900 text-xs"
           >
             Switch Active to Partner B
           </button>
@@ -64,7 +64,7 @@ export const DualClientView: React.FC<DualClientViewProps> = ({ activeTab }) => 
                 Partner A (Offending Partner / Truth-Breaker View)
               </span>
             </div>
-            <span className="text-[10px] font-mono text-slate-400">100% Voluntary Transparency</span>
+            <span className="text-[11px] font-mono text-slate-400">100% Voluntary Transparency</span>
           </div>
           {renderModule()}
         </div>
@@ -78,7 +78,7 @@ export const DualClientView: React.FC<DualClientViewProps> = ({ activeTab }) => 
                 Partner B (Injured Partner / Betrayed View)
               </span>
             </div>
-            <span className="text-[10px] font-mono text-slate-400">Epistemic Safety &amp; Verification</span>
+            <span className="text-[11px] font-mono text-slate-400">Epistemic Safety &amp; Verification</span>
           </div>
           {renderModule()}
         </div>

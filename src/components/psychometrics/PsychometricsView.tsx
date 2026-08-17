@@ -63,7 +63,7 @@ export const PsychometricsView: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-[11px] font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-teal-950 border border-teal-500/40 text-teal-300">
+                <span className="text-xs font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-teal-950 border border-teal-500/40 text-teal-300">
                   Clinical Psychometrics
                 </span>
                 <span className="text-xs text-slate-400 font-mono">Dyadic Trust Scale (DTS) &amp; RDAS Tracking</span>
@@ -99,7 +99,7 @@ export const PsychometricsView: React.FC = () => {
             <span className="text-xs text-slate-400 font-mono">/ 100</span>
             <span className="text-xs text-emerald-400 font-mono font-semibold">+60 pts from baseline</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">Assesses perceived reliability, honesty, and emotional vulnerability.</p>
+          <p className="text-xs text-slate-400 leading-relaxed">Assesses perceived reliability, honesty, and emotional vulnerability.</p>
         </div>
 
         <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-2.5">
@@ -109,7 +109,7 @@ export const PsychometricsView: React.FC = () => {
             <span className="text-xs text-slate-400 font-mono">/ 100</span>
             <span className="text-xs text-emerald-400 font-mono font-semibold">+48 pts from baseline</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">Measures relational consensus, cohesion, and joint satisfaction.</p>
+          <p className="text-xs text-slate-400 leading-relaxed">Measures relational consensus, cohesion, and joint satisfaction.</p>
         </div>
 
         <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-2.5">
@@ -119,7 +119,7 @@ export const PsychometricsView: React.FC = () => {
             <span className="text-xs text-slate-400 font-mono">/ 100</span>
             <span className="text-xs text-emerald-400 font-mono font-semibold">Safe Boundary Zone</span>
           </div>
-          <p className="text-[11px] text-slate-400 leading-relaxed">Absence of intrusive anxiety spikes and rumination episodes.</p>
+          <p className="text-xs text-slate-400 leading-relaxed">Absence of intrusive anxiety spikes and rumination episodes.</p>
         </div>
       </div>
 

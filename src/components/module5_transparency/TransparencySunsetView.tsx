@@ -65,7 +65,7 @@ export const TransparencySunsetView: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-[11px] font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-amber-950 border border-amber-500/40 text-amber-300">
+                <span className="text-xs font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-amber-950 border border-amber-500/40 text-amber-300">
                   Module 5 • Consensual Scaffolding
                 </span>
                 <span className="text-xs text-slate-400 font-mono">Anti-Surveillance &amp; Sunset Protocol</span>
@@ -90,7 +90,7 @@ export const TransparencySunsetView: React.FC = () => {
               {isDecommissioned ? <ShieldCheck className="w-6 h-6" /> : <Eye className="w-6 h-6" />}
             </div>
             <div>
-              <div className="text-[11px] uppercase font-mono text-slate-400 font-medium">Surveillance State</div>
+              <div className="text-xs uppercase font-mono text-slate-400 font-medium">Surveillance State</div>
               <div className="text-xs font-bold text-white font-display mt-0.5">
                 {isDecommissioned ? 'Surveillance Decommissioned' : 'Temporary Scaffolding Active'}
               </div>
@@ -178,7 +178,7 @@ export const TransparencySunsetView: React.FC = () => {
                   <Plus className="w-4 h-4 text-amber-400" aria-hidden="true" />
                   <span>Post Voluntary Transparency Update</span>
                 </h3>
-                <span className="text-[10px] font-mono uppercase bg-amber-950/60 text-amber-300 px-2.5 py-0.5 rounded border border-amber-500/40 font-semibold">
+                <span className="text-[11px] font-mono uppercase bg-amber-950/60 text-amber-300 px-2.5 py-0.5 rounded border border-amber-500/40 font-semibold">
                   Voluntary
                 </span>
               </div>
@@ -276,7 +276,7 @@ export const TransparencySunsetView: React.FC = () => {
                       <span className="font-bold text-white text-xs sm:text-sm">{log.summary}</span>
                     </div>
 
-                    <span className="text-[11px] font-mono text-slate-400">
+                    <span className="text-xs font-mono text-slate-400">
                       {new Date(log.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                     </span>
                   </div>

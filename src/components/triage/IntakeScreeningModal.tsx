@@ -84,7 +84,7 @@ export const IntakeScreeningModal: React.FC<IntakeScreeningModalProps> = ({ isOp
                 />
                 <div>
                   <span className="font-semibold text-slate-200 block text-xs">Intimate Partner Violence (IPV)</span>
-                  <span className="text-[11px] text-slate-400 leading-relaxed">Any physical harm, threats of violence, intimidation, or weapon usage.</span>
+                  <span className="text-xs text-slate-400 leading-relaxed">Any physical harm, threats of violence, intimidation, or weapon usage.</span>
                 </div>
               </label>
 
@@ -97,7 +97,7 @@ export const IntakeScreeningModal: React.FC<IntakeScreeningModalProps> = ({ isOp
                 />
                 <div>
                   <span className="font-semibold text-slate-200 block text-xs">Severe Coercive Control &amp; Hostage Dynamics</span>
-                  <span className="text-[11px] text-slate-400 leading-relaxed">Total financial entrapment, forced isolation from support systems, or digital stalking.</span>
+                  <span className="text-xs text-slate-400 leading-relaxed">Total financial entrapment, forced isolation from support systems, or digital stalking.</span>
                 </div>
               </label>
 
@@ -110,7 +110,7 @@ export const IntakeScreeningModal: React.FC<IntakeScreeningModalProps> = ({ isOp
                 />
                 <div>
                   <span className="font-semibold text-slate-200 block text-xs">Active Ongoing Deception / Extra-Dyadic Contact</span>
-                  <span className="text-[11px] text-slate-400 leading-relaxed">Affair or deceptive contact is currently still ongoing or not fully broken off.</span>
+                  <span className="text-xs text-slate-400 leading-relaxed">Affair or deceptive contact is currently still ongoing or not fully broken off.</span>
                 </div>
               </label>
 
@@ -123,7 +123,7 @@ export const IntakeScreeningModal: React.FC<IntakeScreeningModalProps> = ({ isOp
                 />
                 <div>
                   <span className="font-semibold text-slate-200 block text-xs">Untreated Severe Substance/Gambling Addiction</span>
-                  <span className="text-[11px] text-slate-400 leading-relaxed">Active untreated compulsions that impair behavioral accountability.</span>
+                  <span className="text-xs text-slate-400 leading-relaxed">Active untreated compulsions that impair behavioral accountability.</span>
                 </div>
               </label>
             </div>
@@ -167,7 +167,7 @@ export const IntakeScreeningModal: React.FC<IntakeScreeningModalProps> = ({ isOp
                 <div className="p-3 rounded-xl bg-slate-900 border border-slate-800 flex justify-between items-center">
                   <div>
                     <div className="font-bold text-white font-display">National Domestic Violence Hotline</div>
-                    <div className="text-slate-400 text-[11px]">24/7 Free &amp; Confidential Support</div>
+                    <div className="text-slate-400 text-xs">24/7 Free &amp; Confidential Support</div>
                   </div>
                   <a
                     href="tel:18007997233"
@@ -176,7 +176,7 @@ export const IntakeScreeningModal: React.FC<IntakeScreeningModalProps> = ({ isOp
                     1-800-799-SAFE
                   </a>
                 </div>
-                <p className="text-[11px] text-slate-400 font-mono">
+                <p className="text-xs text-slate-400 font-mono">
                   Text <span className="text-teal-300 font-bold">&ldquo;START&rdquo;</span> to <span className="text-teal-300 font-bold">88788</span> for live chat support.
                 </p>
               </div>

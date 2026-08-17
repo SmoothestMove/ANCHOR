@@ -23,11 +23,11 @@ const STORAGE_PREFIX = 'anchor_guide_collapsed_';
 const roleBadge = (role?: GuideStep['role']) => {
   if (!role || role === 'both') return null;
   return role === 'partnerA' ? (
-    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-amber-950/70 border border-amber-500/40 text-amber-300 mr-1.5">
+    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-mono font-bold bg-amber-950/70 border border-amber-500/40 text-amber-300 mr-1.5">
       Partner A
     </span>
   ) : (
-    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-mono font-bold bg-teal-950/70 border border-teal-500/40 text-teal-300 mr-1.5">
+    <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[11px] font-mono font-bold bg-teal-950/70 border border-teal-500/40 text-teal-300 mr-1.5">
       Partner B
     </span>
   );
@@ -72,7 +72,7 @@ export const ExerciseGuide: React.FC<ExerciseGuideProps> = ({ content }) => {
             <span className="text-sm font-bold font-display text-white">
               How to Use This Exercise
             </span>
-            <span className="text-[11px] text-slate-400 font-mono ml-2">
+            <span className="text-xs text-slate-400 font-mono ml-2">
               {isExpanded ? 'Click to collapse' : 'Click to expand guide'}
             </span>
           </div>
@@ -122,7 +122,7 @@ export const ExerciseGuide: React.FC<ExerciseGuideProps> = ({ content }) => {
             <ol className="space-y-2 pl-6">
               {content.steps.map((step, idx) => (
                 <li key={idx} className="flex items-start space-x-2.5 text-xs">
-                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-900 border border-slate-700 text-slate-300 font-mono font-bold flex items-center justify-center text-[10px] mt-0.5">
+                  <span className="flex-shrink-0 w-5 h-5 rounded-full bg-slate-900 border border-slate-700 text-slate-300 font-mono font-bold flex items-center justify-center text-[11px] mt-0.5">
                     {idx + 1}
                   </span>
                   <span className="text-slate-300 leading-relaxed">
@@ -138,7 +138,7 @@ export const ExerciseGuide: React.FC<ExerciseGuideProps> = ({ content }) => {
           <div className="flex items-start space-x-3 p-3.5 rounded-xl bg-emerald-950/30 border border-emerald-500/25">
             <Trophy className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
             <div>
-              <div className="text-[11px] font-bold font-display text-emerald-300 uppercase tracking-wider mb-0.5">
+              <div className="text-xs font-bold font-display text-emerald-300 uppercase tracking-wider mb-0.5">
                 Success Looks Like
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">

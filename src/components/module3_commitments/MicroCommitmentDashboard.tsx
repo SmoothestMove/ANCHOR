@@ -78,7 +78,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-[11px] font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-teal-950 border border-teal-500/40 text-teal-300">
+                <span className="text-xs font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-teal-950 border border-teal-500/40 text-teal-300">
                   Module 3 • Operant Conditioning
                 </span>
                 <span className="text-xs text-slate-400 font-mono">Truth-Default &amp; Threat Schema Extinction</span>
@@ -98,7 +98,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
               {calculatedBCI}%
             </div>
             <div>
-              <div className="text-[11px] uppercase font-mono text-slate-400 font-medium">Behavioral Consistency Index</div>
+              <div className="text-xs uppercase font-mono text-slate-400 font-medium">Behavioral Consistency Index</div>
               <div className="text-xs font-bold text-teal-300 font-display mt-0.5">
                 {calculatedBCI >= 95 ? 'Clinical Target Exceeded (>95%)' : 'Building Empirical Consistency'}
               </div>
@@ -121,7 +121,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
                   <Plus className="w-4 h-4 text-amber-400" aria-hidden="true" />
                   <span>Partner A: Log Daily Micro-Commitment</span>
                 </h3>
-                <span className="text-[10px] font-mono uppercase bg-amber-950/60 text-amber-300 px-2.5 py-0.5 rounded border border-amber-500/40 font-semibold">
+                <span className="text-[11px] font-mono uppercase bg-amber-950/60 text-amber-300 px-2.5 py-0.5 rounded border border-amber-500/40 font-semibold">
                   Voluntary
                 </span>
               </div>
@@ -250,18 +250,18 @@ export const MicroCommitmentDashboard: React.FC = () => {
                     <div className="flex items-center space-x-2">
                       {c.completed ? (
                         c.verifiedByPartnerB ? (
-                          <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
+                          <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
                             <CheckCircle2 className="w-3 h-3" />
                             <span>Verified by Partner B</span>
                           </span>
                         ) : (
-                          <span className="text-[10px] font-mono text-teal-300 bg-teal-950/70 border border-teal-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
+                          <span className="text-[11px] font-mono text-teal-300 bg-teal-950/70 border border-teal-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
                             <FileCheck className="w-3 h-3" />
                             <span>Completed / Awaiting Verification</span>
                           </span>
                         )
                       ) : (
-                        <span className="text-[10px] font-mono text-amber-400 bg-amber-950/70 border border-amber-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
+                        <span className="text-[11px] font-mono text-amber-400 bg-amber-950/70 border border-amber-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
                           <Clock className="w-3 h-3" />
                           <span>Pending Action</span>
                         </span>
@@ -272,7 +272,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
                   {/* Proof Details if completed */}
                   {c.completed && c.proofDetail && (
                     <div className="p-3 rounded-xl bg-slate-950/90 border border-slate-800 text-xs text-slate-300 space-y-1 my-2.5">
-                      <div className="flex items-center space-x-1.5 text-[11px] text-teal-400 font-mono font-semibold">
+                      <div className="flex items-center space-x-1.5 text-xs text-teal-400 font-mono font-semibold">
                         <FileCheck className="w-3.5 h-3.5" aria-hidden="true" />
                         <span>Submitted Proof ({c.proofType}):</span>
                       </div>

@@ -120,7 +120,7 @@ export const TimelineVaultView: React.FC = () => {
             </div>
             <div>
               <div className="flex items-center space-x-2">
-                <span className="text-[11px] font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-teal-950 border border-teal-500/40 text-teal-300">
+                <span className="text-xs font-mono uppercase font-bold px-2.5 py-0.5 rounded-md bg-teal-950 border border-teal-500/40 text-teal-300">
                   Module 1 • CBCT Framework
                 </span>
                 <span className="text-xs text-slate-400 font-mono">Baucom 3-Stage Model</span>
@@ -139,7 +139,7 @@ export const TimelineVaultView: React.FC = () => {
           <div className="bg-slate-900/90 border border-slate-800 rounded-2xl p-4 flex items-center space-x-4 shadow-sm">
             <div className="text-right text-xs">
               <div className="font-bold text-white font-display">Structured Disclosure Session</div>
-              <div className="text-[11px] text-slate-400 font-mono">
+              <div className="text-xs text-slate-400 font-mono">
                 {isDualLockUnlocked ? 'Mutual Vault Unlocked' : 'Locked to Prevent Late-Night Panic'}
               </div>
             </div>
@@ -173,7 +173,7 @@ export const TimelineVaultView: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-sm shadow-amber-400/50" />
                   <span>Partner A: Submit Factual Disclosure Entry</span>
                 </h3>
-                <span className="text-[10px] font-mono text-amber-400 uppercase bg-amber-950/60 px-2 py-0.5 rounded border border-amber-500/40 font-semibold">
+                <span className="text-[11px] font-mono text-amber-400 uppercase bg-amber-950/60 px-2 py-0.5 rounded border border-amber-500/40 font-semibold">
                   Factual Reality
                 </span>
               </div>
@@ -189,14 +189,14 @@ export const TimelineVaultView: React.FC = () => {
                     <AlertTriangle className="w-4 h-4 flex-shrink-0 text-rose-400" aria-hidden="true" />
                     <span>{nlpError.warningMessage}</span>
                   </div>
-                  <p className="text-slate-300 text-[11px] leading-relaxed">{nlpError.clinicalGuidance}</p>
+                  <p className="text-slate-300 text-xs leading-relaxed">{nlpError.clinicalGuidance}</p>
                   {nlpError.reframingSuggestion && (
                     <div className="mt-2 pt-2.5 border-t border-rose-900/60">
-                      <div className="text-[11px] text-teal-300 font-bold mb-1 flex items-center space-x-1">
+                      <div className="text-xs text-teal-300 font-bold mb-1 flex items-center space-x-1">
                         <Sparkles className="w-3 h-3 text-teal-400" aria-hidden="true" />
                         <span>EFT Non-Defensive Recommendation:</span>
                       </div>
-                      <p className="text-[11px] italic text-slate-200 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
+                      <p className="text-xs italic text-slate-200 bg-slate-900/60 p-2 rounded-lg border border-slate-800">
                         &ldquo;{nlpError.reframingSuggestion}&rdquo;
                       </p>
                       <button
@@ -324,7 +324,7 @@ export const TimelineVaultView: React.FC = () => {
                 <HelpCircle className="w-4 h-4 text-teal-400" aria-hidden="true" />
                 <span>Partner B: Diagnostic Question Queue</span>
               </h3>
-              <span className="text-[10px] font-mono text-teal-300 uppercase bg-teal-950/60 px-2 py-0.5 rounded border border-teal-500/40 font-semibold">
+              <span className="text-[11px] font-mono text-teal-300 uppercase bg-teal-950/60 px-2 py-0.5 rounded border border-teal-500/40 font-semibold">
                 Epistemic Safety
               </span>
             </div>
@@ -392,7 +392,7 @@ export const TimelineVaultView: React.FC = () => {
                 <Lock className="w-5 h-5 text-amber-400 flex-shrink-0 mt-0.5" aria-hidden="true" />
                 <div className="space-y-1">
                   <div className="font-bold text-amber-300 font-display">Dual-Lock Active: Session Required to Read</div>
-                  <p className="text-slate-400 leading-relaxed text-[11px]">
+                  <p className="text-slate-400 leading-relaxed text-xs">
                     To prevent triggering late-night rumination or panic, disclosures are visible during structured
                     disclosure sessions when both partners are grounded and present.
                   </p>
@@ -420,12 +420,12 @@ export const TimelineVaultView: React.FC = () => {
 
                     <div className="flex items-center space-x-2">
                       {entry.partnerB_Acknowledged ? (
-                        <span className="text-[10px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
+                        <span className="text-[11px] font-mono text-emerald-400 bg-emerald-950/70 border border-emerald-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
                           <CheckCircle2 className="w-3 h-3" aria-hidden="true" />
                           <span>Reviewed &amp; Acknowledged</span>
                         </span>
                       ) : (
-                        <span className="text-[10px] font-mono text-amber-400 bg-amber-950/70 border border-amber-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
+                        <span className="text-[11px] font-mono text-amber-400 bg-amber-950/70 border border-amber-500/40 px-2.5 py-0.5 rounded-md flex items-center space-x-1 font-semibold">
                           <Clock className="w-3 h-3" aria-hidden="true" />
                           <span>Pending Review</span>
                         </span>
@@ -440,7 +440,7 @@ export const TimelineVaultView: React.FC = () => {
                         {entry.factualDescription}
                       </p>
 
-                      <div className="flex flex-wrap items-center gap-4 text-[11px] text-slate-400 font-mono pt-1">
+                      <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400 font-mono pt-1">
                         <span className="flex items-center space-x-1.5">
                           <DollarSign className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
                           <span>Cost: <strong className="text-slate-300">{entry.financialScope}</strong></span>
@@ -491,14 +491,14 @@ export const TimelineVaultView: React.FC = () => {
                 <div key={q.id} className="p-4 rounded-2xl bg-slate-950/80 border border-slate-800 space-y-2.5 text-xs">
                   <div className="flex items-start justify-between gap-2">
                     <div className="font-medium text-slate-200 text-xs sm:text-sm leading-relaxed">{q.question}</div>
-                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap font-semibold">
+                    <span className="text-[11px] uppercase font-mono px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-800 whitespace-nowrap font-semibold">
                       {q.clinicalIntent.replace('_', ' ')}
                     </span>
                   </div>
 
                   {q.isAnswered ? (
                     <div className="p-3.5 rounded-xl bg-teal-950/30 border border-teal-500/30 text-slate-300 space-y-1.5">
-                      <div className="text-[11px] font-bold text-teal-400 flex items-center space-x-1.5 font-display">
+                      <div className="text-xs font-bold text-teal-400 flex items-center space-x-1.5 font-display">
                         <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
                         <span>Partner A Response:</span>
                       </div>
