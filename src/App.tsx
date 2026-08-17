@@ -51,7 +51,13 @@ const MainAppContent: React.FC = () => {
         {dualView ? (
           <DualClientView activeTab={activeTab} />
         ) : (
-          <div className="animate-in fade-in duration-150">
+          <div
+            className="animate-in fade-in duration-150"
+            role="tabpanel"
+            id={`panel-${activeTab}`}
+            aria-labelledby={`tab-${activeTab}`}
+            tabIndex={0}
+          >
             {activeTab === 'module1_timeline' && <TimelineVaultView />}
             {activeTab === 'module2_biometrics' && <BiometricFloodingView />}
             {activeTab === 'module3_commitments' && <MicroCommitmentDashboard />}

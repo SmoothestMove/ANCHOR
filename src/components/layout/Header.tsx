@@ -30,6 +30,7 @@ export const Header: React.FC<HeaderProps> = ({
 }) => {
   const { state, activeRole, setActiveRole, syncStatus, exportBackupJSON, importBackupJSON } = useTrustEngine();
   const [copied, setCopied] = useState(false);
+  const [importStatus, setImportStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleCopyLobby = (e: React.MouseEvent) => {
     e.stopPropagation();
@@ -46,15 +47,14 @@ export const Header: React.FC<HeaderProps> = ({
         const text = event.target?.result as string;
         if (text) {
           const success = importBackupJSON(text);
-          if (success) {
-            alert('Clinical session successfully restored!');
-          } else {
-            alert('Invalid backup JSON format.');
-          }
+          setImportStatus(success ? 'success' : 'error');
+          setTimeout(() => setImportStatus('idle'), 4000);
         }
       };
       reader.readAsText(file);
     }
+    // Allow re-selecting the same file consecutively
+    e.target.value = '';
   };
 
   return (
@@ -65,7 +65,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="relative group">
             <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-indigo-500 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-300" />
             <div className="relative p-2.5 rounded-xl bg-slate-900 border border-teal-500/30 text-teal-400 shadow-inner flex items-center justify-center">
-              <Anchor className="w-5 h-5 text-teal-400" />
+              <Anchor className="w-5 h-5 text-teal-400" aria-hidden="true" />
             </div>
           </div>
           <div>
@@ -87,10 +87,10 @@ export const Header: React.FC<HeaderProps> = ({
         <div className="flex items-center space-x-2 bg-slate-900/90 border border-slate-800/90 rounded-xl p-1.5 shadow-sm">
           <button
             onClick={onOpenLobbyModal}
-            className="flex items-center space-x-2 px-3 py-1 text-xs font-mono text-slate-200 hover:text-white bg-slate-800/70 hover:bg-slate-800 rounded-lg transition group"
-            title="Click to manage Lobby pairing"
+            className="flex items-center space-x-2 px-3 py-1 text-xs font-mono text-slate-200 hover:text-white bg-slate-800/70 hover:bg-slate-800 rounded-lg transition group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+            aria-label={`Manage lobby pairing, current code ${state.lobby.lobbyCode}`}
           >
-            <Radio className="w-3.5 h-3.5 text-teal-400 animate-pulse" />
+            <Radio className="w-3.5 h-3.5 text-teal-400 animate-pulse motion-reduce:animate-none" aria-hidden="true" />
             <span className="text-slate-400">Lobby:</span>
             <span className="font-bold text-teal-300 group-hover:text-teal-200 tracking-wider">
               {state.lobby.lobbyCode}
@@ -99,31 +99,35 @@ export const Header: React.FC<HeaderProps> = ({
 
           <button
             onClick={handleCopyLobby}
-            className="p-1.5 text-slate-400 hover:text-teal-300 hover:bg-slate-800/60 rounded-lg transition"
-            title="Copy Lobby Code"
+            className="p-1.5 text-slate-400 hover:text-teal-300 hover:bg-slate-800/60 rounded-lg transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
+            aria-label={copied ? 'Lobby code copied' : 'Copy lobby code'}
           >
-            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+            {copied ? <Check className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" /> : <Copy className="w-3.5 h-3.5" aria-hidden="true" />}
           </button>
 
           <div className="h-4 w-px bg-slate-800 mx-0.5" />
 
           {/* Sync Status Badge */}
-          <div className="flex items-center space-x-1.5 px-2.5 py-1 text-[11px] font-mono rounded-lg bg-slate-950/60 border border-slate-800">
+          <div
+            className="flex items-center space-x-1.5 px-2.5 py-1 text-[11px] font-mono rounded-lg bg-slate-950/60 border border-slate-800"
+            role="status"
+            aria-live="polite"
+          >
             {syncStatus === 'synced' && (
               <>
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shadow-sm shadow-emerald-400/50" />
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse motion-reduce:animate-none shadow-sm shadow-emerald-400/50" aria-hidden="true" />
                 <span className="text-emerald-400 font-medium">Synced</span>
               </>
             )}
             {syncStatus === 'syncing' && (
               <>
-                <span className="w-2 h-2 rounded-full bg-amber-400 animate-spin" />
-                <span className="text-amber-400 font-medium">Syncing...</span>
+                <span className="w-2 h-2 rounded-full bg-amber-400 animate-spin motion-reduce:animate-none" aria-hidden="true" />
+                <span className="text-amber-400 font-medium">Syncing&hellip;</span>
               </>
             )}
             {syncStatus === 'offline' && (
               <>
-                <span className="w-2 h-2 rounded-full bg-rose-400" />
+                <span className="w-2 h-2 rounded-full bg-rose-400" aria-hidden="true" />
                 <span className="text-rose-400 font-medium">Offline</span>
               </>
             )}
@@ -133,43 +137,53 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Right: Asymmetric Role Switcher & Controls */}
         <div className="flex items-center space-x-2 sm:space-x-3">
           {/* Asymmetric Role Switcher */}
-          <div className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs shadow-inner">
+          <div
+            className="flex items-center bg-slate-900 border border-slate-800 rounded-xl p-1 text-xs shadow-inner"
+            role="radiogroup"
+            aria-label="Active participant role"
+          >
             <button
               onClick={() => setActiveRole('partnerA')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              role="radio"
+              aria-checked={activeRole === 'partnerA'}
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
                 activeRole === 'partnerA'
                   ? 'bg-amber-950/90 text-amber-200 border border-amber-500/50 shadow-md shadow-amber-950/50'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
               }`}
               title="Partner A: Offending Partner (Truth-Breaker) - 100% voluntary transparency & commitments"
             >
-              <Lock className="w-3.5 h-3.5 text-amber-400" />
+              <Lock className="w-3.5 h-3.5 text-amber-400" aria-hidden="true" />
               <span>Partner A <span className="hidden sm:inline font-normal text-amber-300/80">(Offender)</span></span>
             </button>
 
             <button
               onClick={() => setActiveRole('partnerB')}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-all ${
+              role="radio"
+              aria-checked={activeRole === 'partnerB'}
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 ${
                 activeRole === 'partnerB'
                   ? 'bg-teal-950/90 text-teal-200 border border-teal-500/50 shadow-md shadow-teal-950/50'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
               }`}
               title="Partner B: Injured Partner (Betrayed) - Diagnostic inquiry, safety boundaries & verification"
             >
-              <Shield className="w-3.5 h-3.5 text-teal-400" />
+              <Shield className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" />
               <span>Partner B <span className="hidden sm:inline font-normal text-teal-300/80">(Injured)</span></span>
             </button>
 
             <button
               onClick={() => setActiveRole('supervisor')}
-              className={`hidden md:flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all ${
+              role="radio"
+              aria-checked={activeRole === 'supervisor'}
+              className={`hidden md:flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
                 activeRole === 'supervisor'
                   ? 'bg-indigo-950/90 text-indigo-200 border border-indigo-500/50 shadow-md shadow-indigo-950/50'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
               }`}
               title="Clinical Observer / Supervisor View"
             >
-              <Eye className="w-3.5 h-3.5 text-indigo-400" />
+              <Eye className="w-3.5 h-3.5 text-indigo-400" aria-hidden="true" />
               <span>Supervisor</span>
             </button>
           </div>
@@ -177,45 +191,58 @@ export const Header: React.FC<HeaderProps> = ({
           {/* Dual Split-View Simulator Toggle */}
           <button
             onClick={() => setDualView(!dualView)}
-            className={`p-2 rounded-xl border text-xs font-medium transition flex items-center space-x-1.5 ${
+            aria-pressed={dualView}
+            className={`p-2 rounded-xl border text-xs font-medium transition flex items-center space-x-1.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 ${
               dualView
                 ? 'bg-teal-950/80 border-teal-500/60 text-teal-200 shadow-md shadow-teal-950/50'
                 : 'bg-slate-900/80 border-slate-800 text-slate-400 hover:text-slate-200 hover:bg-slate-800'
             }`}
             title="Toggle Dual-Client Split Simulation Mode"
           >
-            <Users className="w-3.5 h-3.5 text-teal-400" />
+            <Users className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" />
             <span className="hidden xl:inline">Dual Mode</span>
           </button>
 
           {/* Backup Export */}
           <button
             onClick={exportBackupJSON}
-            className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-teal-300 hover:bg-slate-800 transition"
+            aria-label="Export encrypted session backup as JSON"
+            className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-teal-300 hover:bg-slate-800 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
             title="Export Encrypted/JSON Session Backup"
           >
-            <Download className="w-3.5 h-3.5" />
+            <Download className="w-3.5 h-3.5" aria-hidden="true" />
           </button>
 
           {/* Backup Import */}
           <label
-            className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-teal-300 hover:bg-slate-800 transition cursor-pointer"
+            className="p-2 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-400 hover:text-teal-300 hover:bg-slate-800 transition cursor-pointer focus-within:ring-2 focus-within:ring-teal-400"
             title="Import Session Backup"
           >
-            <Upload className="w-3.5 h-3.5" />
-            <input type="file" accept=".json" onChange={handleFileUpload} className="hidden" />
+            <Upload className="w-3.5 h-3.5" aria-hidden="true" />
+            <span className="sr-only">Import session backup JSON file</span>
+            <input type="file" accept=".json" onChange={handleFileUpload} className="hidden" aria-label="Import session backup JSON file" />
           </label>
 
           {/* Panic Disconnect Emergency Button */}
           <button
             onClick={onOpenEmergencyModal}
-            className="px-3 py-1.5 rounded-xl bg-rose-950/80 border border-rose-600/50 text-rose-200 hover:bg-rose-900/90 text-xs flex items-center space-x-1.5 transition shadow-md shadow-rose-950/50 font-semibold"
-            title="Emergency Panic Disconnect & Safety Resource Protocol"
+            className="px-3 py-1.5 rounded-xl bg-rose-950/80 border border-rose-600/50 text-rose-200 hover:bg-rose-900/90 text-xs flex items-center space-x-1.5 transition shadow-md shadow-rose-950/50 font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
+            aria-label="Open emergency panic disconnect and safety resource protocol"
           >
-            <AlertOctagon className="w-3.5 h-3.5 text-rose-400 animate-pulse" />
+            <AlertOctagon className="w-3.5 h-3.5 text-rose-400 animate-pulse motion-reduce:animate-none" aria-hidden="true" />
             <span className="hidden sm:inline">Emergency Panic</span>
           </button>
         </div>
+      </div>
+
+      {/* Import feedback (screen-reader + visual) */}
+      <div className="max-w-7xl mx-auto px-0" role="status" aria-live="polite">
+        {importStatus === 'success' && (
+          <p className="mt-2 text-xs text-emerald-400 font-medium">Clinical session successfully restored.</p>
+        )}
+        {importStatus === 'error' && (
+          <p className="mt-2 text-xs text-rose-400 font-medium">Invalid backup file &mdash; please check the JSON and try again.</p>
+        )}
       </div>
     </header>
   );
