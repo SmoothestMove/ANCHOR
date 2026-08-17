@@ -23,7 +23,7 @@ export const ClinicalPhaseBanner: React.FC = () => {
                 key={p.id}
                 onClick={() => isUnlocked && setPhase(p.id as ClinicalPhaseId)}
                 disabled={!isUnlocked}
-                className={`flex-shrink-0 flex items-center space-x-2 px-3 py-2 rounded-xl text-xs border transition-all ${
+                className={`flex-shrink-0 flex items-center space-x-2 px-3 py-2 rounded-xl text-xs border transition-colors ${
                   isCurrent
                     ? 'bg-teal-950/90 border-teal-500/60 text-teal-200 shadow-md shadow-teal-950/60 ring-1 ring-teal-500/40'
                     : isCompleted

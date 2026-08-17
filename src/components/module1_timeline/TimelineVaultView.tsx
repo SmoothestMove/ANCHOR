@@ -146,7 +146,7 @@ export const TimelineVaultView: React.FC = () => {
             <button
               onClick={() => setDualLockSessionActive(!isDualLockUnlocked)}
               aria-pressed={isDualLockUnlocked}
-              className={`px-4 py-2.5 rounded-xl border transition-all flex items-center space-x-2 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
+              className={`px-4 py-2.5 rounded-xl border transition-colors flex items-center space-x-2 text-xs font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900 ${
                 isDualLockUnlocked
                   ? 'bg-emerald-950/90 border-emerald-500/60 text-emerald-200 shadow-md shadow-emerald-950/60 focus-visible:ring-emerald-400'
                   : 'bg-amber-950/90 border-amber-500/60 text-amber-200 shadow-md shadow-amber-950/60 focus-visible:ring-amber-400'
@@ -404,7 +404,7 @@ export const TimelineVaultView: React.FC = () => {
               {state.timeline.entries.map((entry) => (
                 <div
                   key={entry.id}
-                  className={`p-4 rounded-2xl border transition-all ${
+                  className={`p-4 rounded-2xl border transition-colors ${
                     entry.status === 'disclosed_and_reviewed'
                       ? 'bg-slate-950/70 border-slate-800 hover:border-slate-700'
                       : 'bg-slate-900/90 border-teal-500/40 shadow-sm'

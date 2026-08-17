@@ -57,7 +57,7 @@ export const ExerciseGuide: React.FC<ExerciseGuideProps> = ({ content }) => {
   };
 
   return (
-    <div className="glass-card rounded-2xl border border-indigo-500/20 overflow-hidden transition-all">
+    <div className="glass-card rounded-2xl border border-indigo-500/20 overflow-hidden transition-colors">
       {/* Collapsed Header / Toggle Bar */}
       <button
         type="button"

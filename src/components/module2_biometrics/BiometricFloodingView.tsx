@@ -88,9 +88,9 @@ export const BiometricFloodingView: React.FC = () => {
           {/* Quick Simulation Trigger */}
           <button
             onClick={handleSimulateSpike}
-            className="px-4 py-2.5 rounded-xl bg-rose-950/90 border border-rose-600/60 text-rose-200 hover:bg-rose-900 text-xs font-semibold flex items-center space-x-2 transition shadow-md shadow-rose-950/50"
+            className="px-4 py-2.5 rounded-xl bg-rose-950/90 border border-rose-600/60 text-rose-200 hover:bg-rose-900 text-xs font-semibold flex items-center space-x-2 transition shadow-md shadow-rose-950/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-rose-400"
           >
-            <Zap className="w-4 h-4 text-rose-400" />
+            <Zap className="w-4 h-4 text-rose-400" aria-hidden="true" />
             <span>Simulate Flooding Spike (&gt;100 bpm)</span>
           </button>
         </div>
@@ -101,11 +101,11 @@ export const BiometricFloodingView: React.FC = () => {
 
       {/* Active Flooding Lockout Banner if triggered */}
       {isFlooded && (
-        <div className="glass-panel rounded-2xl p-6 border-2 border-rose-600/70 bg-rose-950/50 relative overflow-hidden animate-in fade-in zoom-in-95 shadow-xl shadow-rose-950/60">
+        <div className="glass-panel rounded-2xl p-6 border-2 border-rose-600/70 bg-rose-950/50 relative overflow-hidden animate-in fade-in zoom-in-95 shadow-xl shadow-rose-950/60" role="alert">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="flex items-center space-x-4">
-              <div className="p-4 rounded-2xl bg-rose-600/30 border border-rose-500/50 text-rose-400 animate-pulse">
-                <AlertOctagon className="w-8 h-8" />
+              <div className="p-4 rounded-2xl bg-rose-600/30 border border-rose-500/50 text-rose-400 animate-pulse motion-reduce:animate-none">
+                <AlertOctagon className="w-8 h-8" aria-hidden="true" />
               </div>
               <div>
                 <span className="text-xs font-mono uppercase text-rose-300 font-bold tracking-wider">
@@ -217,11 +217,11 @@ export const BiometricFloodingView: React.FC = () => {
                 <span className="text-slate-300 font-medium">Partner B Readiness:</span>
                 {partnerB_Regulated ? (
                   <span className="text-emerald-400 font-mono text-xs flex items-center space-x-1.5 font-semibold">
-                    <CheckCircle2 className="w-4 h-4" />
+                    <CheckCircle2 className="w-4 h-4" aria-hidden="true" />
                     <span>Regulated</span>
                   </span>
                 ) : (
-                  <span className="text-amber-400 font-mono text-xs font-semibold">Cooling Down...</span>
+                  <span className="text-amber-400 font-mono text-xs font-semibold">Cooling Down&hellip;</span>
                 )}
               </div>
             </div>
@@ -229,18 +229,18 @@ export const BiometricFloodingView: React.FC = () => {
             {/* Individual Regulation Button */}
             <button
               onClick={() => confirmRegulation(activeRole)}
-              className="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs flex items-center justify-center space-x-2 transition shadow-md shadow-teal-950/50"
+              className="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold text-xs flex items-center justify-center space-x-2 transition shadow-md shadow-teal-950/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
             >
-              <CheckCircle2 className="w-4 h-4 text-teal-200" />
+              <CheckCircle2 className="w-4 h-4 text-teal-200" aria-hidden="true" />
               <span>Confirm My Emotional Regulation ({activeRole === 'partnerA' ? 'Partner A' : 'Partner B'})</span>
             </button>
 
             {isFlooded && (
               <button
                 onClick={resetFloodingLockout}
-                className="w-full py-2 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-center space-x-1 font-mono transition"
+                className="w-full py-2 text-xs text-slate-400 hover:text-slate-200 flex items-center justify-center space-x-1 font-mono transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 rounded"
               >
-                <RotateCcw className="w-3.5 h-3.5" />
+                <RotateCcw className="w-3.5 h-3.5" aria-hidden="true" />
                 <span>Override Timeout (Supervisor Mode)</span>
               </button>
             )}

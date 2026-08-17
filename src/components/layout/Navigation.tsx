@@ -94,7 +94,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeTab, setActiveTab,
               aria-disabled={isLocked}
               id={`tab-${item.id}`}
               aria-controls={`panel-${item.id}`}
-              className={`flex-shrink-0 flex items-center space-x-3 px-4 py-2.5 rounded-xl text-xs font-semibold border transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 ${
+              className={`flex-shrink-0 flex items-center space-x-3 px-4 py-2.5 rounded-xl text-xs font-semibold border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 ${
                 isActive
                   ? 'bg-teal-950/90 border-teal-500/60 text-teal-200 shadow-md shadow-teal-950/60 ring-1 ring-teal-500/40'
                   : isLocked

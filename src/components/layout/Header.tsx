@@ -146,7 +146,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setActiveRole('partnerA')}
               role="radio"
               aria-checked={activeRole === 'partnerA'}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 ${
                 activeRole === 'partnerA'
                   ? 'bg-amber-950/90 text-amber-200 border border-amber-500/50 shadow-md shadow-amber-950/50'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
@@ -161,7 +161,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setActiveRole('partnerB')}
               role="radio"
               aria-checked={activeRole === 'partnerB'}
-              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 ${
+              className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 ${
                 activeRole === 'partnerB'
                   ? 'bg-teal-950/90 text-teal-200 border border-teal-500/50 shadow-md shadow-teal-950/50'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'
@@ -176,7 +176,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => setActiveRole('supervisor')}
               role="radio"
               aria-checked={activeRole === 'supervisor'}
-              className={`hidden md:flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
+              className={`hidden md:flex items-center space-x-1.5 px-2.5 py-1.5 rounded-lg font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 ${
                 activeRole === 'supervisor'
                   ? 'bg-indigo-950/90 text-indigo-200 border border-indigo-500/50 shadow-md shadow-indigo-950/50'
                   : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/40'

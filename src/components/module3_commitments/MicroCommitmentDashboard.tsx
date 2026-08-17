@@ -203,7 +203,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
               </div>
               <div className="w-full h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800">
                 <div
-                  className="h-full bg-gradient-to-r from-teal-500 to-emerald-400 transition-all duration-500"
+                  className="h-full bg-gradient-to-r from-teal-500 to-emerald-400 transition-colors duration-500"
                   style={{ width: `${total > 0 ? (completed / total) * 100 : 0}%` }}
                 />
               </div>
@@ -231,7 +231,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
               {state.commitments.map((c) => (
                 <div
                   key={c.id}
-                  className={`p-4 rounded-2xl border transition-all ${
+                  className={`p-4 rounded-2xl border transition-colors ${
                     c.completed && c.verifiedByPartnerB
                       ? 'bg-slate-950/70 border-slate-800'
                       : c.completed
