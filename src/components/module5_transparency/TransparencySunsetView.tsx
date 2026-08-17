@@ -175,7 +175,7 @@ export const TransparencySunsetView: React.FC = () => {
             <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-5">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 className="font-display font-bold text-white text-sm flex items-center space-x-2">
-                  <Plus className="w-4 h-4 text-amber-400" />
+                  <Plus className="w-4 h-4 text-amber-400" aria-hidden="true" />
                   <span>Post Voluntary Transparency Update</span>
                 </h3>
                 <span className="text-[10px] font-mono uppercase bg-amber-950/60 text-amber-300 px-2.5 py-0.5 rounded border border-amber-500/40 font-semibold">
@@ -189,11 +189,12 @@ export const TransparencySunsetView: React.FC = () => {
 
               <form onSubmit={handleAddLog} className="space-y-4 text-xs">
                 <div>
-                  <label className="text-slate-400 block mb-1 font-medium">Update Category:</label>
+                  <label htmlFor="transparency-log-type" className="text-slate-400 block mb-1 font-medium">Update Category:</label>
                   <select
+                    id="transparency-log-type"
                     value={logType}
                     onChange={(e) => setLogType(e.target.value as TransparencyLog['type'])}
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-amber-500 text-xs"
+                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus:border-amber-500 text-xs"
                   >
                     <option value="schedule">Schedule &amp; Calendar Update</option>
                     <option value="location">Location Check-in</option>
@@ -203,34 +204,37 @@ export const TransparencySunsetView: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-slate-400 block mb-1 font-medium">Summary Title:</label>
+                  <label htmlFor="transparency-log-summary" className="text-slate-400 block mb-1 font-medium">Summary Title:</label>
                   <input
+                    id="transparency-log-summary"
                     type="text"
                     value={summary}
                     onChange={(e) => setSummary(e.target.value)}
-                    placeholder="e.g. Arrived at client office / Lunch expense"
+                    placeholder="e.g. Arrived at client office / Lunch expense&hellip;"
                     required
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-amber-500 text-xs"
+                    autoComplete="off"
+                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus:border-amber-500 text-xs"
                   />
                 </div>
 
                 <div>
-                  <label className="text-slate-400 block mb-1 font-medium">Details &amp; Timestamps:</label>
+                  <label htmlFor="transparency-log-detail" className="text-slate-400 block mb-1 font-medium">Details &amp; Timestamps:</label>
                   <textarea
+                    id="transparency-log-detail"
                     value={detail}
                     onChange={(e) => setDetail(e.target.value)}
                     rows={3}
                     placeholder="e.g. Meeting in Conference Room 3 until 3:00 PM. Charge of $18.50 on debit card."
                     required
-                    className="w-full px-3 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-amber-500 text-xs leading-relaxed"
+                    className="w-full px-3 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus:border-amber-500 text-xs leading-relaxed"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold flex items-center justify-center space-x-2 transition shadow-md shadow-amber-950/50"
+                  className="w-full py-2.5 rounded-xl bg-amber-600 hover:bg-amber-500 text-white font-semibold flex items-center justify-center space-x-2 transition shadow-md shadow-amber-950/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-4 h-4" aria-hidden="true" />
                   <span>Post Voluntary Transparency Feed</span>
                 </button>
               </form>
@@ -240,7 +244,7 @@ export const TransparencySunsetView: React.FC = () => {
           {/* Anti-Surveillance Guardrail Info */}
           <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-3">
             <div className="flex items-center space-x-2 text-rose-400 font-bold text-xs font-display">
-              <AlertTriangle className="w-4 h-4" />
+              <AlertTriangle className="w-4 h-4" aria-hidden="true" />
               <span>Anti-Surveillance Clinical Policy</span>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed font-normal">

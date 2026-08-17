@@ -183,23 +183,28 @@ export const AttunementCoachView: React.FC = () => {
             {/* Input Composer with Live NLP Interception */}
             <form onSubmit={handleSend} className="pt-3 border-t border-slate-800 space-y-2">
               <div className="relative">
+                <label htmlFor="attunement-message" className="sr-only">
+                  {activeRole === 'partnerA' ? 'Reflection to Partner B' : 'Your current feelings'}
+                </label>
                 <textarea
+                  id="attunement-message"
                   value={inputText}
                   onChange={handleInputChange}
                   rows={3}
                   placeholder={
                     activeRole === 'partnerA'
-                      ? 'Type reflection to Partner B. NLP coach will monitor for defensiveness or blame-shifting in real-time...'
-                      : 'Express your current feelings or trauma-related pain...'
+                      ? 'Type reflection to Partner B. NLP coach will monitor for defensiveness or blame-shifting in real-time&hellip;'
+                      : 'Express your current feelings or trauma-related pain&hellip;'
                   }
-                  className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs sm:text-sm placeholder-slate-600 focus:outline-none focus:border-indigo-500 pr-12 leading-relaxed"
+                  className="w-full px-4 py-3 bg-slate-950 border border-slate-800 rounded-xl text-white text-xs sm:text-sm placeholder-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 focus:border-indigo-500 pr-12 leading-relaxed"
                 />
                 <button
                   type="submit"
                   disabled={!inputText.trim()}
-                  className="absolute right-3 bottom-3 p-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-30 text-white transition shadow-md shadow-indigo-950"
+                  aria-label="Send message"
+                  className="absolute right-3 bottom-3 p-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 disabled:opacity-30 text-white transition shadow-md shadow-indigo-950 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
                 >
-                  <Send className="w-4 h-4" />
+                  <Send className="w-4 h-4" aria-hidden="true" />
                 </button>
               </div>
             </form>
@@ -210,9 +215,9 @@ export const AttunementCoachView: React.FC = () => {
         <div className="lg:col-span-5 space-y-6">
           {/* Live NLP Interception Card */}
           {nlpWarning ? (
-            <div className="glass-card rounded-2xl p-6 border-2 border-rose-600/70 bg-rose-950/40 space-y-4 animate-in fade-in shadow-xl shadow-rose-950/50">
+            <div className="glass-card rounded-2xl p-6 border-2 border-rose-600/70 bg-rose-950/40 space-y-4 animate-in fade-in shadow-xl shadow-rose-950/50" role="alert">
               <div className="flex items-center space-x-2 text-rose-300 font-bold text-xs font-display">
-                <AlertTriangle className="w-4 h-4 text-rose-400 animate-bounce" />
+                <AlertTriangle className="w-4 h-4 text-rose-400 animate-bounce motion-reduce:animate-none" aria-hidden="true" />
                 <span>Coach Interception: {nlpWarning.violationType?.replace('_', ' ').toUpperCase()}</span>
               </div>
 
@@ -228,18 +233,18 @@ export const AttunementCoachView: React.FC = () => {
               {nlpWarning.reframingSuggestion && (
                 <div className="p-4 bg-indigo-950/60 rounded-xl border border-indigo-500/40 space-y-2.5">
                   <div className="flex items-center space-x-1.5 text-xs text-indigo-300 font-bold font-display">
-                    <Sparkles className="w-3.5 h-3.5 text-indigo-400" />
+                    <Sparkles className="w-3.5 h-3.5 text-indigo-400" aria-hidden="true" />
                     <span>EFT Non-Defensive Recommendation:</span>
                   </div>
                   <p className="text-xs text-slate-200 italic leading-relaxed bg-slate-950/60 p-2.5 rounded-lg border border-slate-850">
-                    "{nlpWarning.reframingSuggestion}"
+                    &ldquo;{nlpWarning.reframingSuggestion}&rdquo;
                   </p>
                   <button
                     type="button"
                     onClick={() => handleApplySuggestion(nlpWarning.reframingSuggestion!)}
-                    className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center justify-center space-x-2 transition shadow-md shadow-indigo-950/50"
+                    className="w-full py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs flex items-center justify-center space-x-2 transition shadow-md shadow-indigo-950/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
                   >
-                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    <CheckCircle2 className="w-3.5 h-3.5" aria-hidden="true" />
                     <span>Apply Reframed Response</span>
                   </button>
                 </div>
@@ -248,7 +253,7 @@ export const AttunementCoachView: React.FC = () => {
           ) : (
             <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-3">
               <div className="flex items-center space-x-2 text-indigo-400 font-bold text-xs font-display">
-                <Bot className="w-4 h-4" />
+                <Bot className="w-4 h-4" aria-hidden="true" />
                 <span>AI Clinical Safety Officer Active</span>
               </div>
               <p className="text-xs text-slate-300 leading-relaxed">
@@ -262,7 +267,7 @@ export const AttunementCoachView: React.FC = () => {
           <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800 pb-2">
               <h4 className="font-display font-bold text-white text-xs flex items-center space-x-2">
-                <Sparkles className="w-3.5 h-3.5 text-teal-400" />
+                <Sparkles className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" />
                 <span>EFT Attunement Response Templates</span>
               </h4>
             </div>
@@ -275,11 +280,11 @@ export const AttunementCoachView: React.FC = () => {
                     'I hear how much pain and uncertainty my actions caused you. You have every right to feel hurt, and I am committed to answering your questions without making excuses.'
                   )
                 }
-                className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition"
+                className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 <div className="font-bold text-teal-300 mb-0.5">Validation &amp; Non-Defensive Stance:</div>
                 <div className="text-[11px] text-slate-400 line-clamp-2">
-                  "I hear how much pain and uncertainty my actions caused you..."
+                  &ldquo;I hear how much pain and uncertainty my actions caused you&hellip;&rdquo;
                 </div>
               </button>
 
@@ -290,11 +295,11 @@ export const AttunementCoachView: React.FC = () => {
                     'I recognize that rebuilding safety takes time. I will not rush you or ask you to get over it. I am right here with you.'
                   )
                 }
-                className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition"
+                className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 <div className="font-bold text-indigo-300 mb-0.5">Patience &amp; De-Pressuring:</div>
                 <div className="text-[11px] text-slate-400 line-clamp-2">
-                  "I recognize that rebuilding safety takes time. I will not rush you..."
+                  &ldquo;I recognize that rebuilding safety takes time. I will not rush you&hellip;&rdquo;
                 </div>
               </button>
 
@@ -305,11 +310,11 @@ export const AttunementCoachView: React.FC = () => {
                     'I take 100% responsibility for breaking your trust. There were no external excuses, and I am focused on proving my reliability each day.'
                   )
                 }
-                className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition"
+                className="w-full p-3 rounded-xl bg-slate-950/80 hover:bg-slate-900 border border-slate-800 hover:border-slate-700 text-left text-slate-300 hover:text-white transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
               >
                 <div className="font-bold text-amber-300 mb-0.5">Unreserved Responsibility:</div>
                 <div className="text-[11px] text-slate-400 line-clamp-2">
-                  "I take 100% responsibility for breaking your trust..."
+                  &ldquo;I take 100% responsibility for breaking your trust&hellip;&rdquo;
                 </div>
               </button>
             </div>

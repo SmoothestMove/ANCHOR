@@ -118,7 +118,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
             <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-5">
               <div className="flex items-center justify-between border-b border-slate-800 pb-3">
                 <h3 className="font-display font-bold text-white text-sm flex items-center space-x-2">
-                  <Plus className="w-4 h-4 text-amber-400" />
+                  <Plus className="w-4 h-4 text-amber-400" aria-hidden="true" />
                   <span>Partner A: Log Daily Micro-Commitment</span>
                 </h3>
                 <span className="text-[10px] font-mono uppercase bg-amber-950/60 text-amber-300 px-2.5 py-0.5 rounded border border-amber-500/40 font-semibold">
@@ -132,24 +132,27 @@ export const MicroCommitmentDashboard: React.FC = () => {
 
               <form onSubmit={handleAdd} className="space-y-4 text-xs">
                 <div>
-                  <label className="text-slate-400 block mb-1 font-medium">Commitment Title:</label>
+                  <label htmlFor="commitment-title" className="text-slate-400 block mb-1 font-medium">Commitment Title:</label>
                   <input
+                    id="commitment-title"
                     type="text"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    placeholder="e.g. Call at 12:15 PM from desk / Upload lunch receipt"
+                    placeholder="e.g. Call at 12:15 PM from desk / Upload lunch receipt&hellip;"
                     required
-                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus:border-teal-500 text-xs"
+                    autoComplete="off"
+                    className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white placeholder-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus:border-teal-500 text-xs"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
                   <div>
-                    <label className="text-slate-400 block mb-1 font-medium">Category:</label>
+                    <label htmlFor="commitment-category" className="text-slate-400 block mb-1 font-medium">Category:</label>
                     <select
+                      id="commitment-category"
                       value={category}
                       onChange={(e) => setCategory(e.target.value as MicroCommitment['category'])}
-                      className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-teal-500 text-xs"
+                      className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus:border-teal-500 text-xs"
                     >
                       <option value="communication">Scheduled Check-in</option>
                       <option value="schedule">Arrival / Departure</option>
@@ -159,22 +162,24 @@ export const MicroCommitmentDashboard: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="text-slate-400 block mb-1 font-medium">Due Time:</label>
+                    <label htmlFor="commitment-due-time" className="text-slate-400 block mb-1 font-medium">Due Time:</label>
                     <input
+                      id="commitment-due-time"
                       type="text"
                       value={dueTime}
                       onChange={(e) => setDueTime(e.target.value)}
-                      placeholder="e.g. 12:30 PM"
-                      className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus:border-teal-500 text-xs"
+                      placeholder="e.g. 12:30 PM&hellip;"
+                      autoComplete="off"
+                      className="w-full px-3 py-2 bg-slate-950 border border-slate-800 rounded-xl text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus:border-teal-500 text-xs"
                     />
                   </div>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold flex items-center justify-center space-x-2 transition shadow-md shadow-teal-950/50"
+                  className="w-full py-2.5 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-semibold flex items-center justify-center space-x-2 transition shadow-md shadow-teal-950/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900"
                 >
-                  <Plus className="w-4 h-4" />
+                  <Plus className="w-4 h-4" aria-hidden="true" />
                   <span>Log Micro-Commitment</span>
                 </button>
               </form>
@@ -184,7 +189,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
           {/* Operant Psychology Explainer */}
           <div className="glass-card rounded-2xl p-6 border border-slate-800 space-y-4">
             <div className="flex items-center space-x-2 text-teal-400">
-              <TrendingUp className="w-4 h-4" />
+              <TrendingUp className="w-4 h-4" aria-hidden="true" />
               <h3 className="font-display font-bold text-white text-sm">Operant Trust Analytics</h3>
             </div>
             <p className="text-xs text-slate-300 leading-relaxed">
@@ -268,7 +273,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
                   {c.completed && c.proofDetail && (
                     <div className="p-3 rounded-xl bg-slate-950/90 border border-slate-800 text-xs text-slate-300 space-y-1 my-2.5">
                       <div className="flex items-center space-x-1.5 text-[11px] text-teal-400 font-mono font-semibold">
-                        <FileCheck className="w-3.5 h-3.5" />
+                        <FileCheck className="w-3.5 h-3.5" aria-hidden="true" />
                         <span>Submitted Proof ({c.proofType}):</span>
                       </div>
                       <p className="leading-relaxed text-slate-200">{c.proofDetail}</p>
@@ -281,10 +286,12 @@ export const MicroCommitmentDashboard: React.FC = () => {
                       {activeCompletingId === c.id ? (
                         <div className="p-3.5 bg-slate-950 rounded-xl border border-teal-500/40 space-y-2.5 text-xs">
                           <div className="flex gap-2">
+                            <label htmlFor={`proof-type-${c.id}`} className="sr-only">Proof type</label>
                             <select
+                              id={`proof-type-${c.id}`}
                               value={proofType}
                               onChange={(e) => setProofType(e.target.value as MicroCommitment['proofType'])}
-                              className="px-2.5 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-white text-xs"
+                              className="px-2.5 py-1.5 bg-slate-900 border border-slate-700 rounded-lg text-white text-xs focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus:border-teal-500"
                             >
                               <option value="timestamp">Timestamp Note</option>
                               <option value="location_checkin">Location / GPS Note</option>
@@ -292,23 +299,25 @@ export const MicroCommitmentDashboard: React.FC = () => {
                               <option value="self_verified">Self-Verified Reflection</option>
                             </select>
                           </div>
+                          <label htmlFor={`proof-detail-${c.id}`} className="sr-only">Proof details</label>
                           <textarea
+                            id={`proof-detail-${c.id}`}
                             value={proofDetail}
                             onChange={(e) => setProofDetail(e.target.value)}
-                            placeholder="Provide proof details (e.g. Connected on call at 12:28 PM, uploaded receipt #104)"
+                            placeholder="Provide proof details (e.g. Connected on call at 12:28 PM, uploaded receipt #104)&hellip;"
                             rows={2}
-                            className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-xs placeholder-slate-600 focus:outline-none focus:border-teal-500"
+                            className="w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-xl text-white text-xs placeholder-slate-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-teal-500 focus:border-teal-500"
                           />
                           <div className="flex justify-end space-x-2">
                             <button
                               onClick={() => setActiveCompletingId(null)}
-                              className="px-3 py-1 text-slate-400 hover:text-white"
+                              className="px-3 py-1 text-slate-400 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500 rounded"
                             >
                               Cancel
                             </button>
                             <button
                               onClick={() => handleCompleteSubmit(c.id)}
-                              className="px-4 py-1.5 bg-teal-600 hover:bg-teal-500 text-white rounded-lg font-semibold text-xs transition"
+                              className="px-4 py-1.5 bg-teal-600 hover:bg-teal-500 text-white rounded-lg font-semibold text-xs transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
                             >
                               Confirm Completion
                             </button>
@@ -320,7 +329,7 @@ export const MicroCommitmentDashboard: React.FC = () => {
                             setActiveCompletingId(c.id);
                             setProofDetail('');
                           }}
-                          className="px-3.5 py-1.5 rounded-xl bg-amber-950/90 border border-amber-500/50 text-amber-200 hover:bg-amber-900 text-xs font-semibold transition shadow-sm"
+                          className="px-3.5 py-1.5 rounded-xl bg-amber-950/90 border border-amber-500/50 text-amber-200 hover:bg-amber-900 text-xs font-semibold transition shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-400"
                         >
                           Complete Action with Proof
                         </button>
@@ -333,9 +342,9 @@ export const MicroCommitmentDashboard: React.FC = () => {
                     <div className="pt-2 flex justify-end">
                       <button
                         onClick={() => verifyCommitment(c.id)}
-                        className="px-3.5 py-1.5 rounded-xl bg-teal-950/90 hover:bg-teal-900 border border-teal-500/50 text-teal-200 text-xs font-semibold flex items-center space-x-2 transition shadow-sm"
+                        className="px-3.5 py-1.5 rounded-xl bg-teal-950/90 hover:bg-teal-900 border border-teal-500/50 text-teal-200 text-xs font-semibold flex items-center space-x-2 transition shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-400"
                       >
-                        <ShieldCheck className="w-3.5 h-3.5 text-teal-400" />
+                        <ShieldCheck className="w-3.5 h-3.5 text-teal-400" aria-hidden="true" />
                         <span>Verify &amp; Validate Micro-Action</span>
                       </button>
                     </div>
