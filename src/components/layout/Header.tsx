@@ -78,7 +78,7 @@ export const Header: React.FC<HeaderProps> = ({
               </span>
             </div>
             <p className="text-xs text-slate-400 hidden sm:block font-medium">
-              Evidence-Based Dyadic Repair • CBCT &amp; EFT Frameworks
+              <span className="text-teal-400/90 font-semibold">A</span>ccountability • <span className="text-teal-400/90 font-semibold">N</span>urture • <span className="text-teal-400/90 font-semibold">C</span>larity • &amp; <span className="text-teal-400/90 font-semibold">H</span>onest <span className="text-teal-400/90 font-semibold">O</span>pen <span className="text-teal-400/90 font-semibold">R</span>econnection
             </p>
           </div>
         </div>

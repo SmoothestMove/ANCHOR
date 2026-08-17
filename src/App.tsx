@@ -67,8 +67,8 @@ const MainAppContent: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center space-x-2">
             <ShieldCheck className="w-4 h-4 text-teal-500/70" />
-            <span className="font-semibold text-slate-400">Anchor Relational Trust Engine</span>
-            <span>• CBCT + EFT (AIRM) + Gottman Sound House + IBCT + Operant Learning</span>
+            <span className="font-semibold text-slate-400">ANCHOR Relational Trust Engine</span>
+            <span>• Accountability • Nurture • Clarity • &amp; Honest Open Reconnection</span>
           </div>
           <div className="flex items-center space-x-4 font-mono text-[11px]">
             <span>Zero-Knowledge Vault</span>
